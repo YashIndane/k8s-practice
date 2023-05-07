@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    env: pre-prod
+    code: ishf
+spec:
+  template:
+    metadata:
+      name: my-rs-pod
+      labels:
+        env: prod
+        code: ieyr
+    spec:
+      containers:
+        - name: my-rs-con
+          image: httpd:2.4-alpine
+  replicas: 3
+  selector:
+    matchLabels:
+      env: prod
+      code: ieyr
