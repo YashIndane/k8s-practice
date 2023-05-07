@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deploy
+  labels:
+    env: pre-prod
+    code: jvgg
+spec:
+  template:
+    metadata:
+      name: my-deploy-pod
+      labels:
+        env: pre-prod
+        code: shsj
+    spec:
+      containers:
+        - name: my-deploy-con
+          image: httpd:2.4-alpine
+          ports:
+            - containerPort: 80
+          env:
+            - name: "USERNAME"
+              value: "abcd"
+            - name: "PASSWORD"
+              value: "1234"
+   replicas: 3
+   selector:
+     matchLabels:
+       env: pre-prod
+       code: shsj
