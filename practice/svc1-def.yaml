@@ -1,0 +1,15 @@
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: my-svc-cluster
+  labels:
+    env: pre-prod
+    code: kshf
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 443
+  selector:
+    env: pre-prod
