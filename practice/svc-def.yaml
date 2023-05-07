@@ -1,0 +1,16 @@
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: my-svc
+  labels:
+    env: pre-prod
+    code: fjwji
+spec:
+  type: NodePort
+  ports:
+    port: 80
+    targetPort: 80
+    NodePort: 30092
+  selector:
+    env: pre-prod
