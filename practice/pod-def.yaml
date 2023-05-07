@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    env: pre-prod
+    code: evsgs
+spec:
+  containers:
+    - name: my-pod-con
+      image: httpd:2.4-alpine
+    - name: my-pod-con1
+      image: httpd:2.4-alpine
