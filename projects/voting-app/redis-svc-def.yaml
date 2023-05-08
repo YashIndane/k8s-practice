@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: redis
   labels:
-    app: pre-prod
+    env: pre-prod
 spec:
   type: ClusterIP
   ports:
