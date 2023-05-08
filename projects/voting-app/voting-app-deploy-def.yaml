@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: voting-app-con
-          image:
+          image: kodekloud/examplevotingapp_vote:v1
+          ports:
+            - containerPort: 80
   replicas: 3
   selector:
     matchLabels:
