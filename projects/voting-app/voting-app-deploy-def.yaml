@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voting-app-dep
+  labels:
+    env: pre-prod
+spec:
+  template:
+    metadata:
+      name: voting-app-pod
+      labels:
+        app: voting-app
+    spec:
+      containers:
+        - name: voting-app-con
+          image:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: voting-app
