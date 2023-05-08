@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-dep
+  labels:
+    env: pre-prod
+spec:
+  template:
+    metadata:
+      name: redis-pod
+      labels:
+        app: redis-app
+    spec:
+      containers:
+        - name: redis-con
+          image:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: redis-app
