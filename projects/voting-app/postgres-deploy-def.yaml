@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-dep
+  labels:
+    env: pre-prod
+spec:
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        app: postgres-app
+    spec:
+      containers:
+        - name: postgres-con
+          image:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: postgres-app
