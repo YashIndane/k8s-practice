@@ -1,1 +1,21 @@
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app-dep
+  labels:
+    env: pre-prod
+spec:
+  template:
+    metadata:
+      name: result-app-pod
+      labels:
+        app: result-app
+    spec:
+      containers:
+        - name: result-app-con
+          image:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: result-app
