@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deploy
+  labels:
+    env: pre-prod
+  namespace: my-ns
+spec:
+  containers:
+    metadata:
+      name: my-pod
+      labels:
+        env: pre-prod
+        code: evsgs
+    namespace: my-ns
+    spec:
+      containers:
+        - name: my-pod-con
+          image: httpd:2.4-alpine
+          ports:
+            - containerPort: 80
+          env:
+            - name: "USER"
+              value: "abc"
+            - name: "PASS"
+              value: "123"
+          command: ["python", "x.py"]
+      
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "1.5"
+              memory: "3Gi"
+          
+  nodeName: my-custom-node
+  tolerations:
+    - key: "app"
+      value: "blue"
+      operator: "Equals"
+      effect: "NoSchedule"
+      
+  replicas: 3
+  selector:
+    matchLabels:
+      env: pre-prod
