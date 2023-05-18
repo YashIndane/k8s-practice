@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: my-rq
+  namespace: my-ns
+spec:
+  hard:
+    ...: ""
+    ...: ""
