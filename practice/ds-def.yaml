@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: DaemonSet
+metadata:
+  name: my-ds
+  labels:
+    env: pre-prod
+spec:
+  template:
+    metadata:
+      name: my-pod
+      labels:
+        env: pre-prod
+    spec:
+      containers:
+        - name: my-con
+          image: httpd:2.4-alpine
+  selector:
+    maetchLabels:
+      env: pre-prod
