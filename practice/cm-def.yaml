@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-cm
+  labels:
+    app: pre
+data:
+  KEY1: "VALUE1"
+  KEY2: "VALUE2"
